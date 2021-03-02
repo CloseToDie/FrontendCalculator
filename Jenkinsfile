@@ -9,12 +9,12 @@ pipeline {
 			{
 				steps
 				{
-					sh "docker build . -t math231k/frontend-calc"
+					sh "docker build . -t gruppe1devops/frontend-calc"
 					withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: 'DockerID', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD']])
 					{
 						sh 'docker login -u ${USERNAME} -p ${PASSWORD}'
 					}
-					sh "docker push math231k/frontend-calc"
+					sh "docker push gruppe1devops/frontend-calc"
 				}
 			}
 			
